@@ -1,0 +1,81 @@
+.instructions {
+    margin-bottom: 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 50px 30px;
+    background: url("../../assets/img/lorenzo-herrera-p0j-mE6mGo4-unsplash.jpg") repeat 0 0; 
+    margin-top: 200px;
+    
+}
+
+  h1   { 
+    color: rgb(176, 141, 187);
+    text-align: center;
+    font-size: 3.5rem;
+    text-decoration:none;
+    padding: 10px;
+    }
+
+    h2{
+    color: rgb(151, 110, 175);
+    text-align: center;
+    font-size: 2.5rem;
+    text-decoration: none;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:bold;
+    padding: 90px;
+
+}
+
+ li{
+    color: rgb(253, 240, 255); 
+    margin-left: 30px; 
+    font-size: 1.7rem;
+    font-weight:bold;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+ }
+ video {
+    object-fit:fill;
+    filter: brightness(25%);
+    width: 100%;
+    height: 100%;
+    position:fixed;
+    z-index: -1;
+}
+
+
+.browser-defult{
+    padding-left: 4px;
+    margin-top: -20px;
+    color: rgb(253, 240, 255);
+    font-size: 1.7rem;
+    text-decoration: none;
+}
+
+.links-play-home{
+    font-size: 2rem;
+    width: 100%;
+    text-decoration: none;
+    display:flex;
+    position: relative;   
+    justify-content: space-between;
+    
+    text-align:center;
+    text-decoration: none;
+    border-radius:30px;
+    
+
+}
+.yes-no {
+    font-size: 2rem;
+    border-radius: 40px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+@media (max-width: 768px){
+
+    
+}
