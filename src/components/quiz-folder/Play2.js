@@ -8,6 +8,7 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import "../../styles/components/Timer.css";
 import Home from '../Home';
 import  Leadboard  from '../Leadborad';
+import {Spin} from 'antd';
 const axios = require('axios');
 
 
@@ -55,13 +56,16 @@ export default function Play2(props) {
 		setQuestions(questionArray.slice(0,2))
         
 	}
+
+	const onBackHome = () => {
+		props.onBackHome(score, props.userName);
+	}
 	
 	useEffect(() => {
 		async function fetchMyAPI() {
 		  let response = await axios.get('https://opentdb.com/api.php?amount=100#');
           console.log(response.data)
-		  buildQuestions(response.data.results)
-          
+		  buildQuestions(response.data.results)          
 		}
 	
 		fetchMyAPI()
@@ -90,7 +94,6 @@ export default function Play2(props) {
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
-            
 		} else {
 			setShowScore(true);
 		}
@@ -102,8 +105,6 @@ export default function Play2(props) {
         setDisableButton(true);
         setCurrentQuestion(pervQuestion)
     }
-
-   
 
 	function shuffleArray(array) {
 		let i = array.length - 1;
@@ -137,11 +138,9 @@ export default function Play2(props) {
 				{showScore ? (
 					<div className='score-section-summary'>
 						You scored {score} out of {questions.length}
-                        <button className='nav-item'>
-                            <Link to='/' className='nav-links'>
-                                Home
-                            </Link>
-                            </button>
+                        <button onClick={onBackHome} className='nav-item'>                        
+                            Home
+                        </button>
 					</div>
                     
 				) : (
@@ -211,13 +210,8 @@ export default function Play2(props) {
 					</>
 				)}
 			</div>
-			) : 
-			<Leadboard 
-				name={props.userName}
-				score={score}
-				onLeadboard={props.onLeadboard}
-			/>
-			}
+			) 
+			: null}
 		</div>
 	);
 }

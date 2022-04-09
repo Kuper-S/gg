@@ -1,12 +1,22 @@
 import React from "react";
 
  function Leadboard(props) {
+    const processData = () => {
+        const array = [];
+        props.data.map(user => {
+                array.push(
+                <div>
+                    <p>user {user.name} score: {user.score}</p>
+                </div>
+                )
+        })
+        return array;
+    }
     return (
         <div>
             <h1 className="leadboard">Leadboard</h1>
-            <h2>User Name: {props.name}</h2>
-            <h2>Score: {props.score}</h2>
-            <button onClick={props.onLeadboard}>Go Back Home</button>
+            {processData()}
+            <button onClick={props.onBackHome}>Back Home</button>
         </div>
     )
 }

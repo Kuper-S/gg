@@ -5,17 +5,21 @@ import { Link } from 'react-router-dom';
 import Test from './Test';
 import Play2 from './quiz-folder/Play2';
 import Quiz from './quiz-folder/Quiz-instrctions';
-import { Leaderboard } from '@mui/icons-material';
+import Leadboard from './Leadborad';
 
 
-
-
-
+//TODO:
+// 1. remove navbar from every page
+// 2. create leadboard table
+// 3. fix Home buttons
 const Home = (props) => {
     const [playPage, setPlayPage] = useState(false);
     const [instructionPage, setInstructionPage] = useState(false);
     const [leaderboardPage, setLeaderboardPage] = useState(false);
     const [userName, setUserName] = useState('');
+    const [leadBoardTable, setLeadBoardTable] = useState([]);
+
+    console.log(`leaderboardPage ${leaderboardPage}`);
 
     const onInstructionClick = () => {
         setInstructionPage(true);
@@ -26,24 +30,44 @@ const Home = (props) => {
         setPlayPage(true);
     }
 
-    const onLeadboard = () => {
+    const onLeadBoardClick = () => {
+        setLeaderboardPage(true);
+    }
+
+    const onBackHome = (score=null, userName='') => {
+        if(score && userName){
+            setLeadBoardTable([...leadBoardTable,{
+                name: userName,
+                score: score
+            }]);
+        }
         setPlayPage(false);
+        setInstructionPage(false);
+        setLeaderboardPage(false);
     }
 
     if(playPage){
         return <Play2 
             userName={userName.title}
-            onLeadboard={onLeadboard}
+            onBackHome={onBackHome}
         />
     }
 
     if(instructionPage){
         return <Quiz 
           onPlayClick={onPlayClick}
+          onBackHome={onBackHome}
         />
     }
 
-    return( 
+    if(leaderboardPage){
+        return <Leadboard 
+            data={leadBoardTable}
+            onBackHome={onBackHome}
+        />
+    }
+
+    return(
    <Fragment>
    <Helmet><title>Quiz App _ Home</title></Helmet>
     <div id="home">
@@ -68,9 +92,7 @@ const Home = (props) => {
             </div>
             
             <div className='auth-container'>
-            
-                <Link to= "/leadboard" className='auth-buttons' id="login-button">Leadboard</Link>
-                <Link to= "/rockps" className='auth-buttons' id="register-button">Rock</Link>
+                <button id="login-button" onClick={onLeadBoardClick}>Leadboard</button>
             </div>
        </section>
        </div>

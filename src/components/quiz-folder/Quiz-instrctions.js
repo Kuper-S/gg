@@ -32,10 +32,9 @@ function Quiz(props) {
             <h2>So? Would you like to try ?</h2>
             </li>
             <div className='links-play-home'>
-            <Link to='/'><button className="btn btn-warning rounded yes-no" type="button">
+            <button onClick={props.onBackHome} className="btn btn-warning rounded yes-no" type="button">
                 No.. not yet
-                </button>
-            </Link>
+            </button>
             <button onClick={props.onPlayClick} className="btn btn-warning rounded yes-no" type="button">
                 Hell Yeah! lets GO!
             </button>
