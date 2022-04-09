@@ -3,36 +3,16 @@ import Login  from '../components/Login';
 import Card  from '../components/Card';
 
 
-function Test(){
-    const [names, setNames] = useState([]);
+function Test(props){
+    const [names, setNames] = useState('');
 
   function addName(newName) {
-    setNames(prevNames => {
-      return [...prevNames, newName];
-    });
-  }
-
-  function deleteName(id) {
-    setNames(prevNames => {
-      return prevNames.filter((nameItem, index) => {
-        return index !== id;
-      });
-    });
+    props.setNames(newName);
   }
 
   return (
     <>
       <Login onAdd={addName} />
-      {names.map((nameItem, index) => {
-        return (
-          <Card
-            key={index}
-            id={index}
-            title={nameItem.title}
-            onDelete={deleteName}
-          />
-        );
-      })}
       </>
   );
 }

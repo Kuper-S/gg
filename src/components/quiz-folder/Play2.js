@@ -52,7 +52,7 @@ export default function Play2(props) {
 				}   
 			)
 		})
-		setQuestions(questionArray)
+		setQuestions(questionArray.slice(0,2))
         
 	}
 	
@@ -120,9 +120,6 @@ export default function Play2(props) {
         var counter = 5;
         counter --;
         setHints(true)
-        
-       
-
     }
 
 
@@ -134,8 +131,6 @@ export default function Play2(props) {
                 <audio id="wrong-sound" src={Wrong}></audio>
                 
             </Fragment>
-            {/* {_remainingTime > 0 ? ( */}
-
 			{questions &&  _remainingTime > 0 ?(
 			<div className='play'>
             <Card userName={props.title}/>
@@ -176,7 +171,9 @@ export default function Play2(props) {
  
                     
                 </div>
-                
+                <div>
+					Welcome {props.userName}
+				</div>
 						<div className='question-section'>
 							<div className='question-count'>
 								<span>Question {currentQuestion + 1}</span>/{questions.length}
@@ -214,8 +211,13 @@ export default function Play2(props) {
 					</>
 				)}
 			</div>
-			) : <Leadboard/>}
-            {/* ) : null}  */}
+			) : 
+			<Leadboard 
+				name={props.userName}
+				score={score}
+				onLeadboard={props.onLeadboard}
+			/>
+			}
 		</div>
 	);
 }

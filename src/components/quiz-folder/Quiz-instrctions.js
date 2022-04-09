@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import vid from '../../assets/videos/spaceship.mp4'
 
 
-function Quiz() {
+function Quiz(props) {
   return (
    <Fragment>
     <Helmet>
@@ -36,12 +36,9 @@ function Quiz() {
                 No.. not yet
                 </button>
             </Link>
-            <Link to='/play/quiz'><button className="btn btn-warning rounded yes-no" type="button">
+            <button onClick={props.onPlayClick} className="btn btn-warning rounded yes-no" type="button">
                 Hell Yeah! lets GO!
-                </button>
-            </Link>
-                {/* <span className='left'><Link to='/'>No.. take me back</Link></span> */}
-                {/* <span  className='right'><Link to='/play/quiz'>OK?! Lets do that!</Link></span> */}
+            </button>
             </div>
         
         </ul>

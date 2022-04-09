@@ -1,18 +1,49 @@
 import { getElementError } from '@testing-library/react';
-import React , {Fragment} from 'react';
+import React , {Fragment, useState} from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
-// import Login  from '../components/Login';
-// import User from '../components/User';
-// import Sound from '../assets/sounds/buttonSound.mp3'
 import Test from './Test';
+import Play2 from './quiz-folder/Play2';
+import Quiz from './quiz-folder/Quiz-instrctions';
+import { Leaderboard } from '@mui/icons-material';
 
 
 
 
 
-const Home = (props) => (
-    
+const Home = (props) => {
+    const [playPage, setPlayPage] = useState(false);
+    const [instructionPage, setInstructionPage] = useState(false);
+    const [leaderboardPage, setLeaderboardPage] = useState(false);
+    const [userName, setUserName] = useState('');
+
+    const onInstructionClick = () => {
+        setInstructionPage(true);
+    }
+
+    const onPlayClick = () => {
+        setInstructionPage(false);
+        setPlayPage(true);
+    }
+
+    const onLeadboard = () => {
+        setPlayPage(false);
+    }
+
+    if(playPage){
+        return <Play2 
+            userName={userName.title}
+            onLeadboard={onLeadboard}
+        />
+    }
+
+    if(instructionPage){
+        return <Quiz 
+          onPlayClick={onPlayClick}
+        />
+    }
+
+    return( 
    <Fragment>
    <Helmet><title>Quiz App _ Home</title></Helmet>
     <div id="home">
@@ -23,7 +54,7 @@ const Home = (props) => (
             <div>
             <h1 class="animate-charcter">Quiz Game</h1>
             <div >
-            <Test userName={props.title}/>
+            <Test setNames={setUserName} userName={props.title}/>
             
             </div>
             
@@ -32,7 +63,7 @@ const Home = (props) => (
             </div>
             <div className='play-button-container'>
                 <ul>
-                    <span ><Link className='play_button' to="/play/instructions" >Play</Link></span>
+                    <button className='play_button' onClick={onInstructionClick}>Play</button>
                 </ul>
             </div>
             
@@ -44,8 +75,7 @@ const Home = (props) => (
        </section>
        </div>
    </Fragment>
-   
-);
+)};
    
 
 export default Home;
