@@ -6,17 +6,17 @@ import React from "react";
         props.data.map(user => {
                 array.push(
                 <div>
-                    <p>user {user.name} score: {user.score}</p>
+                    <p className = "p-lead">Player {user.name} Score : {user.score}</p>
                 </div>
                 )
         })
         return array;
     }
     return (
-        <div>
-            <h1 className="leadboard">Leadboard</h1>
+        <div className="leadborad-div">
+            <h1 className="leadboard-title">Leadrborad</h1>
             {processData()}
-            <button onClick={props.onBackHome}>Back Home</button>
+            <button className="leadborad-btn btn btn-warning rounded" onClick={props.onBackHome}>Back Home</button>
         </div>
     )
 }

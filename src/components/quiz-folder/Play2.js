@@ -53,7 +53,7 @@ export default function Play2(props) {
 				}   
 			)
 		})
-		setQuestions(questionArray.slice(0,2))
+		setQuestions(questionArray.slice(0,15))
         
 	}
 
@@ -152,12 +152,12 @@ export default function Play2(props) {
                     </p>
                     
                     <div className="App">
-                    <button className={handleHintClick}>Hint</button>  
+                    <button  className='btn btn-warning'  onClick={handleHintClick}>Hint</button>  
 
                 <div className="timer-wrapper">
                     <CountdownCircleTimer
                     isPlaying 
-                    duration={200}
+                    duration={400}
                     colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
                     colorsTime={[30, 15, 10, 0]}
                     onComplete={() => ({ shouldRepeat: true, delay: 1 })}
@@ -200,8 +200,8 @@ export default function Play2(props) {
 						</div>
 						
                         <div className='button-container'>
-                                
-                            <button className="btn btn-danger rounded-circle"><Link to="/">Quit</Link></button>
+						<button className="leadborad-btn btn btn-danger rounded" onClick={props.onBackHome}>Back Home</button>
+
                                 
                            
                             

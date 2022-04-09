@@ -51,7 +51,7 @@
 
    
     .play-button-container{
-        width: 86%;
+        width: 90%;
         display:inline-flexbox;
         justify-content: center;
         
@@ -68,7 +68,7 @@
 
 
     .play_button{
-        
+        width: 100%;
         padding: 1rem;
         font-size: 2rem ;
         text-decoration: none;
@@ -96,6 +96,7 @@
     #login-button {
     background-color: #9f3cc7;
     box-shadow: 0 10px 15px rgba(142, 109, 161, 0.979);
+    width: 100%;
     
     }
     
@@ -125,7 +126,7 @@
     #para-home{
         color: rgb(218, 103, 37);
         text-align: center;
-        font-size: x;
+        font-size: x-large;
         
     }  
     

@@ -23,7 +23,7 @@
   }
   
   body .play {
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(0, 0, 0);
     display:inline-block;
     position: static;
     justify-content: center;
@@ -54,11 +54,12 @@
   }
   
   .score-section-summary{
-    display: flex;
+    display:inline-flex;
     font-size: 50px;
-    align-items: center;
+    font-weight: bolder;
     margin: 30px;
     justify-content: center;
+    color: #00fa00;
   }
   
   /* QUESTION/TIMER/LEFT SECTION */
@@ -67,7 +68,7 @@
     position: relative;
     
     font-size: xx-large;
-    color: #000000;
+    color: #ffffff;
   }
   
   

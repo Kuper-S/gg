@@ -15,16 +15,13 @@ function Quiz(props) {
         <h1>How to Play The Quizi Game</h1>
         
         <ul className='browser-defult' id="main-list">
-            <li>This game has a time limit of 10 minutes.</li>
-            <li>Answer the questions as fast as you can! </li>
+            <li>This game has a time limit of 400sec .</li>
             <li>Each game consists 15 questions. </li>
             <li>Most questions have 4 or 2 answers to choose from.</li>
             <li>Timer starts as soon as the game load</li>
-            <li>Feel free to quit the game at any time,In that case your score will be revealed</li>
 
-            <li>Each game has 2 lifelines to use : 
+            <li>Each game has 1 lifelines to use : 
                 <ul className='sublist'>
-                    <li>One-time option to divide the answers to 50-50  ➗.</li>
                     <li>5 Hints 💡</li>
                 </ul>
             

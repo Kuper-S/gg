@@ -92,7 +92,7 @@ const Home = (props) => {
             </div>
             
             <div className='auth-container'>
-                <button id="login-button" onClick={onLeadBoardClick}>Leadboard</button>
+                <button className="auth-buttons" id="login-button" onClick={onLeadBoardClick}>Leadrboard</button>
             </div>
        </section>
        </div>

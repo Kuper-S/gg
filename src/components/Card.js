@@ -11,8 +11,7 @@ function Note(props) {
     // <div className="note">
     <div className="userarea"><h2 className="username">{props.title}</h2>
       
-      {/* <p>{props.content}</p> */}
-      <button className="note button" onClick={handleClick}>DELETE</button>
+     
       
      </div>
   );

@@ -7,9 +7,7 @@ import {
 import Home from './components/Home';
 import Footer from './components/Fotter';
 import Navbar from './components/Navbar';
-import User from './components/User';
 import Quiz from './components/quiz-folder/Quiz-instrctions';
-import Play from './components/quiz-folder/Play';
 import Play2 from './components/quiz-folder/Play2';
 import RockPS from './components/rockPaperS/RockPS';
 
