@@ -1,17 +1,25 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import Right from "../../assets/sounds/positiveee.mp3"
 import Wrong from "../../assets/sounds/wrongans.mp3"
 import Card  from '../Card';
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+
 import "../../styles/components/Timer.css";
 import Home from '../Home';
+import  Leadboard  from '../Leadborad';
+import {Spin} from 'antd';
 import RockPS from '../rockPaperS/RockPS';
+import ClickGame from '../clickgame/Clickgame';
+
 const axios = require('axios');
 
 
 export default function Play2(props) {
 
 	const [_remainingTime, _setRemainingTime] = useState(30);
+
+	const [clockKey, setClockKey] = useState(0);
 
 
 	const renderTime = ({ remainingTime }) => {
@@ -76,12 +84,25 @@ export default function Play2(props) {
 	const [clickedAnswer, setClickedAnswer] = useState(null);
     const [hints, setHints] = useState(5);
     const [playRps, setPlayRps] = useState(false);
+    const [playClick, setPlayClick] = useState(false);
+
+	const calculateScoreOfAnswer = () => {
+		let points = 0;
+		if (_remainingTime >= 25) {
+			points = 3;
+		} else if (_remainingTime >= 20 && _remainingTime < 25) {
+			points = 2;
+		} else {
+			points = 1;
+		}
+		return score + points;
+	}
 
 	const handleAnswerOptionClick = (isCorrect, text) => {
 		setDisableButton(true);
 		setClickedAnswer(text);
 		if (isCorrect) {
-			setScore(score + 1);
+			setScore(calculateScoreOfAnswer());
             document.getElementById('correct-sound').play();
 		}else{
             document.getElementById('wrong-sound').play(); 
@@ -94,6 +115,9 @@ export default function Play2(props) {
 			if (nextQuestion === 5) {
 				setPlayRps(true);
 				setCurrentQuestion(nextQuestion);
+			} else if (nextQuestion === 3 || nextQuestion === 6) {
+				setPlayClick(true);
+				setCurrentQuestion(nextQuestion);
 			} else {
 				setCurrentQuestion(nextQuestion);
 			}
@@ -101,6 +125,7 @@ export default function Play2(props) {
 			setShowScore(true);
 		}
 		setDisableButton(false);
+		setClockKey(clockKey+1);
 	}
 
     const handlePervOnClick = () => {
@@ -148,17 +173,14 @@ export default function Play2(props) {
 			.replace(/&lsquo;/gi, '\'');
 	}
 
-	
+	console.log(`checking hints is ${hints}`);
 	const hintButtonClasses = hints > 0 ? 'btn btn-warning' : 'btn btn-warning btn-disabled'; 
 
-	// var audio = new Audio();
-  	// audio.play("../assets/sounds/mixkit-game-level-completed-2059.wav");
-
-
+	console.log(`class is ${hintButtonClasses}`);
 	return (
 		<div>
 			{
-				!playRps &&
+				!playRps && !playClick && _remainingTime > 0 &&
 				<div id ="play2">
 
 				<Fragment>
@@ -171,8 +193,8 @@ export default function Play2(props) {
 				<Card userName={props.title}/>
 					{showScore ? (
 						<div className='score-section-summary'>
-							You scored {score} out of {questions.length}
-							<button onClick={onBackHome} className='nav-item  btn-primary'>                        
+							You scored {score} points
+							<button onClick={onBackHome} className='nav-item'>                        
 								Home
 							</button>
 						</div>
@@ -186,12 +208,13 @@ export default function Play2(props) {
 						</p>
 						
 						<div className="App">
-						<button className={hintButtonClasses} onClick={handleHintClick}>Hint</button>  
+						<button className={hintButtonClasses} onClick={handleHintClick}>Get Hint ({hints})</button>  
 
 					<div className="timer-wrapper">
 						<CountdownCircleTimer
+          				key={clockKey}
 						isPlaying 
-						duration={400}
+						duration={30}
 						colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
 						colorsTime={[30, 15, 10, 0]}
 						onComplete={() => ({ shouldRepeat: true, delay: 1 })}
@@ -218,8 +241,7 @@ export default function Play2(props) {
 								
 								<div className='question-text'>{parseFromHtmlString(questions[currentQuestion].questionText)}</div>
 								<div className='score-section'>
-									{score} out of {questions.length}
-									
+									Score: {score} points
 								</div>
 							</div>
 							<div className='answer-section'>
@@ -249,9 +271,27 @@ export default function Play2(props) {
 				</div>
 			}
 			{
-				!!playRps && 
+				!!playRps && !playClick && _remainingTime > 0 &&
 				<div id="rps">
-					<RockPS setPlayRps={setPlayRps} />
+					<RockPS setPlayRps={setPlayRps} setScore={setScore} score={score} />
+				</div>
+			}
+			{
+				!!playClick && !playRps && _remainingTime > 0 &&
+				<div id="click-game">
+					<ClickGame setPlayClick={setPlayClick} setScore={setScore} score={score} />
+				</div>
+			}
+			{
+				_remainingTime <= 0 &&
+				<div>
+					<h1>Game Over...</h1>
+					<div className='score-section-summary'>
+						You scored {score} points
+						<button onClick={onBackHome} className='play_button'>                        
+							Home
+						</button>
+					</div>
 				</div>
 			}
 		</div>

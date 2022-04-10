@@ -15,10 +15,15 @@ function Quiz(props) {
         <h1>How to Play The Quizi Game</h1>
         
         <ul className='browser-defult' id="main-list">
-            <li>This game has a time limit of 400sec .</li>
             <li>Each game consists 15 questions. </li>
+            <li>Each question has a time limit of 30 sec.</li>
+            <li>Answer as fast as you can! you get score for that! .</li>
             <li>Most questions have 4 or 2 answers to choose from.</li>
-            <li>Timer starts as soon as the game load</li>
+            <li>Timer starts as soon as the game loads.</li>
+            <li>During 
+                The game will feature mini-games:
+                * Rock Paper Scissors (until you lose)
+                * Clicker game (click the button as fast as you can!).</li>
 
             <li>Each game has 1 lifelines to use : 
                 <ul className='sublist'>
