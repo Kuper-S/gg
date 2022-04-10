@@ -4,6 +4,7 @@
         height: 100vh;
         background-position:center;
         background-size:1500px;
+        font-size: 7rem;
       }
 
 
@@ -11,6 +12,7 @@
 .result-rockPaper {
     color: aquamarine;
     font-size: 100px;
+    
 }
 
 
@@ -18,18 +20,21 @@
     background-color: black;
     width: 20%;
     margin-left:10%;
-    height: 60px;
+    height: 80px;
     font-size: xx-large;
+    border-radius: 30px;
     
 
 }
 
 .player-choice {
+    font-size: 5rem;
     color:aliceblue;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .pc-choice {
+    font-size: 5rem;
     color:aliceblue;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 

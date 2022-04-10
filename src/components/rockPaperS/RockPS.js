@@ -11,6 +11,7 @@ const RockPS = (props) => {
   const [result, setResult] = useState(null)
   const choices = ['👊', '🖐️', '🖖']
   const [count, setCount] = useState(0);
+  
 
 
 
@@ -32,12 +33,15 @@ const RockPS = (props) => {
         case '🖐️👊':
             document.getElementById('wining-sound').play();
           setResult('YOU WIN!')
+          setCount(count+1)
+          
           
           break
         case '🖐️🖖':
         case '🖖👊':
         case '👊🖐️':
           setResult('YOU LOSE!')
+          
           document.getElementById('losing-sound').play();
           setTimeout(() => {
            props.setPlayRps(false); 
@@ -59,7 +63,7 @@ const RockPS = (props) => {
      <audio id="wining-sound" src={woo}></audio>
     <audio id="losing-sound" src={loser}></audio>
     <audio id="draw-sound" src={draw}></audio>
-        <h1>Rock , Paper , Sciossors</h1>
+        <h1>Rock , Paper , Sciossors until you lose</h1>
       <h2 className='player-choice'>User choice is: {userChoice}</h2>
       <h2 className='pc-choice'>Computer choice is: {computerChoice}</h2>
       {choices.map((choice, index) =>

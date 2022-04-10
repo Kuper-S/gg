@@ -1,6 +1,7 @@
 import React from "react";
 
  function Leadboard(props) {
+    
     const processData = () => {
         const array = [];
         props.data.map(user => {
@@ -10,7 +11,7 @@ import React from "react";
                 </div>
                 )
         })
-        return array;
+        return array
     }
     return (
         <div className="leadborad-div">

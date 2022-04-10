@@ -1,14 +1,10 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import Right from "../../assets/sounds/positiveee.mp3"
 import Wrong from "../../assets/sounds/wrongans.mp3"
 import Card  from '../Card';
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-
 import "../../styles/components/Timer.css";
 import Home from '../Home';
-import  Leadboard  from '../Leadborad';
-import {Spin} from 'antd';
 import RockPS from '../rockPaperS/RockPS';
 const axios = require('axios');
 
@@ -152,10 +148,13 @@ export default function Play2(props) {
 			.replace(/&lsquo;/gi, '\'');
 	}
 
-	console.log(`checking hints is ${hints}`);
+	
 	const hintButtonClasses = hints > 0 ? 'btn btn-warning' : 'btn btn-warning btn-disabled'; 
 
-	console.log(`class is ${hintButtonClasses}`);
+	// var audio = new Audio();
+  	// audio.play("../assets/sounds/mixkit-game-level-completed-2059.wav");
+
+
 	return (
 		<div>
 			{
@@ -173,7 +172,7 @@ export default function Play2(props) {
 					{showScore ? (
 						<div className='score-section-summary'>
 							You scored {score} out of {questions.length}
-							<button onClick={onBackHome} className='nav-item'>                        
+							<button onClick={onBackHome} className='nav-item  btn-primary'>                        
 								Home
 							</button>
 						</div>
