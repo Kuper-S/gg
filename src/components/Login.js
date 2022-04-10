@@ -4,6 +4,7 @@ function CreateArea(props) {
   const [name, setName] = useState({
     userName :""
   });
+  const [wasAdded, setWasAdded] = useState(false);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -21,6 +22,7 @@ function CreateArea(props) {
     setName({
         userName :""
     });
+    setWasAdded(true);
     event.preventDefault();
   }
 
@@ -28,12 +30,13 @@ function CreateArea(props) {
     <div>
       <form >
         <input
-          name="title"
-          onChange={handleChange}
-          value={name.title}
-          placeholder="Enter Your Name"
+        name="title"
+        onChange={handleChange}
+        value={name.title}
+        placeholder="Enter Your Name"
+        disabled={wasAdded}
         />
-        
+
         <button onClick={submitName}>Add</button>
       </form>
     </div>

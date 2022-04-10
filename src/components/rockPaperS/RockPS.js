@@ -5,9 +5,7 @@ import draw  from './draw.mp3'
 import LoadingScreen from 'react-loading-screen';
 import { Spin } from 'antd';
 
-
-
-const App = () => {
+const RockPS = (props) => {
   const [userChoice, setUserChoice] = useState(null)
   const [computerChoice, setComputerChoice] = useState(null)
   const [result, setResult] = useState(null)
@@ -41,6 +39,9 @@ const App = () => {
         case '👊🖐️':
           setResult('YOU LOSE!')
           document.getElementById('losing-sound').play();
+          setTimeout(() => {
+           props.setPlayRps(false); 
+          }, 3000);
           break
         case '👊👊':
         case '🖐️🖐️':
@@ -73,5 +74,5 @@ const App = () => {
   )
 }
 
-export default App
+export default RockPS
 

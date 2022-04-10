@@ -14,9 +14,6 @@ import RockPS from './components/rockPaperS/RockPS';
 
 function App() {
   
- 
-  
-
     return (
       <BrowserRouter>
       <Navbar/>

@@ -61,6 +61,15 @@
     justify-content: center;
     color: #00fa00;
   }
+
+  /* USERNAME SECTION */
+  .username-section {
+    width: 100%;
+    position: relative;
+    
+    font-size: xx-large;
+    color: #ffffff;
+  }
   
   /* QUESTION/TIMER/LEFT SECTION */
   .question-section {
@@ -178,10 +187,12 @@
    top: -3px;
 }
 
+.btn-next {
+  justify-content: center;
+  
+  
+}
 
-
-  .btn-next {
-    justify-content: center;
-    
-    
-  }
+.btn-disabled {
+  background-color: #808080 !important;
+}
