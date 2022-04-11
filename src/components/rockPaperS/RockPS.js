@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React,{ useEffect, useState } from 'react'
 import woo  from './woo.mp3'
 import loser  from './loser.mp3'
 import draw  from './draw.mp3'
@@ -74,5 +74,5 @@ const RockPS = (props) => {
   )
 }
 
-export default RockPS
+export default RockPS;
 

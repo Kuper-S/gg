@@ -11,6 +11,8 @@ import Quiz from './components/quiz-folder/Quiz-instrctions';
 import Play2 from './components/quiz-folder/Play2';
 import RockPS from './components/rockPaperS/RockPS';
 
+// public\favicon.ico
+// C:\Users\dell\Desktop\final-V-Quizz\gg\build\favicon.ico
 
 function App() {
   

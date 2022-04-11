@@ -11,10 +11,12 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.19.5",
+    "assert": "^2.0.0",
     "axios": "^0.26.1",
     "classname": "^0.0.0",
+    "express-favicon": "^2.0.1",
+    "fs": "^0.0.1-security",
     "materialize-css": "^1.0.0-rc.2",
-    "node-sass": "^7.0.1",
     "react": "^18.0.0",
     "react-countdown-circle-timer": "^3.0.9",
     "react-dom": "^18.0.0",
@@ -22,7 +24,10 @@
     "react-helmet-async": "^1.2.3",
     "react-loading-screen": "^0.0.17",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.0",
+    "react-scripts": "^5.0.0",
+    "sass-loader": "^12.6.0",
+    "serve-favicon": "^2.5.0",
+    "util": "^0.12.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -48,5 +53,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kuper-S/gg.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kuper-S/gg/issues"
+  },
+  "homepage": "https://github.com/Kuper-S/gg#readme",
+  "devDependencies": {
+    "mini-css-extract-plugin": "^2.6.0",
+    "sass": "^1.50.0",
+    "webpack": "^5.72.0"
   }
 }
